@@ -36,7 +36,6 @@ export default function FilterNotesClient({ tag, initialPage = 1 }: Props) {
         search: searchQuery || undefined,
       }),
     placeholderData: keepPreviousData,
-    refetchOnMount: false,
   });
 
   const debouncedSearch = useDebouncedCallback((text: string) => {

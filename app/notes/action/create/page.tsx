@@ -4,11 +4,12 @@ import css from "./CreateNote.module.css";
 import NoteForm from "@/components/NoteForm/NoteForm";
 
 export const metadata: Metadata = {
-  title: "NoteHub",
-  description: "Note-taking app",
+  title: "Create note — NoteHub",
+  description: "Create a new note",
   openGraph: {
-    title: "NoteHub",
-    description: "Note-taking app",
+    title: "Create note — NoteHub",
+    description: "Create a new note",
+    url: "https://notehub.com/notes/action/create",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",

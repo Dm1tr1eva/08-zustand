@@ -26,18 +26,19 @@
   color: #212529;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .content {
-  margin: 0;
-  flex-grow: 1;
+  margin: 0 0 12px;
   font-size: 14px;
+  line-height: 1.5;
   color: #495057;
-  margin-bottom: 12px;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  max-height: calc(1.5em * 6);
 }
 
 .button {

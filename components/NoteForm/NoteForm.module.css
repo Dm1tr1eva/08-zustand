@@ -20,7 +20,12 @@
   font-size: 14px;
   border: 1px solid #ced4da;
   border-radius: 4px;
+}
+
+.textarea {
   resize: none;
+  overflow: hidden;
+  min-height: 80px;
 }
 
 .actions {
