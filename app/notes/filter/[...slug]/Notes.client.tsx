@@ -6,11 +6,9 @@ import { useDebouncedCallback } from "use-debounce";
 import NoteList from "@/components/NoteList/NoteList";
 import Pagination from "@/components/Pagination/Pagination";
 import SearchBox from "@/components/SearchBox/SearchBox";
-import CreateButton from "@/components/CreateButton/CreateButton";
-import Modal from "@/components/Modal/Modal";
-import NoteForm from "@/components/NoteForm/NoteForm";
 import { fetchNotes } from "@/lib/api";
 import css from "./FilterNotesPage.module.css";
+import Link from "next/link";
 
 const NOTES_PER_PAGE = 12;
 
@@ -22,7 +20,6 @@ type Props = {
 export default function FilterNotesClient({ tag, initialPage = 1 }: Props) {
   const [currentPage, setCurrentPage] = useState(initialPage);
   const [searchQuery, setSearchQuery] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const {
     data: notesData,
@@ -55,14 +52,6 @@ export default function FilterNotesClient({ tag, initialPage = 1 }: Props) {
     setCurrentPage(pageNumber);
   };
 
-  const handleCreateNote = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-  };
-
   const pageCount = notesData?.totalPages ?? 0;
 
   if (isLoading) return <div>Loading...</div>;
@@ -83,7 +72,9 @@ export default function FilterNotesClient({ tag, initialPage = 1 }: Props) {
             onPageChange={handlePageChange}
           />
         )}
-        <CreateButton onClick={handleCreateNote} />
+        <Link href="/notes/action/create" className={css.createlink}>
+          Create note +
+        </Link>
       </header>
 
       <section className={css.content}>
@@ -98,15 +89,6 @@ export default function FilterNotesClient({ tag, initialPage = 1 }: Props) {
           </div>
         )}
       </section>
-
-      {isModalOpen && (
-        <Modal isOpen={isModalOpen} onClose={handleCloseModal}>
-          <NoteForm
-            onCancel={handleCloseModal}
-            onSuccess={() => setCurrentPage(1)}
-          />
-        </Modal>
-      )}
     </div>
   );
 }

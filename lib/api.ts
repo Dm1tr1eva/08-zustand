@@ -35,26 +35,26 @@ export interface FetchNotesResponse {
   totalPages: number;
 }
 
-export interface CreateNoteRequest {
+export type CreateNoteRequest = {
   title: string;
   content: string;
-  tag: "Todo" | "Work" | "Personal" | "Meeting" | "Shopping";
+  tag: "Todo" | "Work" | "Personal" | 'Meeting' | 'Shopping';
 }
 
-export type Category = {
-  id: string;
-  name: string;
-  description: string;
-  createdAt: string;
-  updatedAt: string;
-};
+// export type Category = {
+//   id: string;
+//   name: string;
+//   description: string;
+//   createdAt: string;
+//   updatedAt: string;
+// };
 
 // =============GET CATEGORIES=============
 
-export const getCategories = async () => {
-  const res = await axiosInstance<Category[]>("/categories");
-  return res.data;
-};
+// export const getCategories = async () => {
+//   const res = await axiosInstance.get<Category[]>("/categories");
+//   return res.data;
+// };
 
 // =============GET NOTE BY ID=============
 

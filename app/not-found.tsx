@@ -1,8 +1,26 @@
 "use client";
 
+import type { Metadata } from "next";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import css from "./Home.module.css";
+
+export const metadata: Metadata = {
+  title: "Not found",
+  description: "Page not found",
+  openGraph: {
+    title: "Not found",
+    description: "Page not found",
+    images: [
+      {
+        url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
+        width: 1200,
+        height: 630,
+        alt: "NoteHub",
+      },
+    ],
+  },
+};
 
 const NotFound = () => {
   const router = useRouter();
